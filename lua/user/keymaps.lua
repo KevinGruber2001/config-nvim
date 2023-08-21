@@ -24,9 +24,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Bether fast moving with J and K 
-keymap("n", "<C-j>", "20jzz", opts)
-keymap("n", "<C-k>", "20kzz", opts)
+-- Bether navigation with C-u and C-d
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -34,18 +34,21 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "∆", "<Esc>:m .+1<CR>==gi", opts)
+keymap("n", "˚", "<Esc>:m .-2<CR>==gi", opts)
+
+keymap("n", "ƒ", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "∂", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "ß", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "å", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
+
+keymap("i", "å", "<ESC> :lua require('harpoon.ui').nav_file(1)<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -70,4 +73,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-

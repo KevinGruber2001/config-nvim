@@ -5,6 +5,7 @@ vim.cmd [[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
+    autocmd BufWritePre * lua vim.lsp.buf.format{async=true}
   augroup end
 
   augroup _git
@@ -29,6 +30,18 @@ vim.cmd [[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 ]]
+
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		package.loaded["feline"] = nil
+		package.loaded["catppuccin.groups.integrations.feline"] = nil
+		require("feline").setup({
+			components = require("catppuccin.groups.integrations.feline").get(),
+		})
+	end,
+})
 
 -- Autoformat
 -- augroup _lsp
