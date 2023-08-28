@@ -19,36 +19,27 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "˙", "<C-w>h", opts)
+keymap("n", "∆", "<C-w>j", opts)
+keymap("n", "˚", "<C-w>k", opts)
+keymap("n", "¬", "<C-w>l", opts)
 
 -- Bether navigation with C-u and C-d
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
 -- Move text up and down
-keymap("n", "∆", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "˚", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "¨", "<Esc>:m .+1<CR>==gi", opts)
+keymap("n", "∂", "<Esc>:m .-2<CR>==gi", opts)
 
-keymap("n", "ƒ", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
-keymap("n", "∂", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
-keymap("n", "ß", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
-keymap("n", "å", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+keymap("n", "<tab>", "<C-w>w", opts)
+
+
 
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
-
-keymap("i", "å", "<ESC> :lua require('harpoon.ui').nav_file(1)<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

@@ -98,10 +98,10 @@ local mappings = {
 		name = "Harpoon",
 		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Buffer" },
 		s = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show Buffers" },
-		h = { "<cmd>lua require('harpoon.ui').nav_file(1) <cr>", "Select 1" },
-		j = { "<cmd>lua require('harpoon.ui').nav_file(2) <cr>", "Select 2" },
-		k = { "<cmd>lua require('harpoon.ui').nav_file(3) <cr>", "Select 3" },
-		l = { "<cmd>lua require('harpoon.ui').nav_file(4) <cr>", "Select 4" },
+		h = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Select 1" },
+		j = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Select 2" },
+		k = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Select 3" },
+		l = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Select 4" },
 	},
 
 	p = {
@@ -139,6 +139,7 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    e = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "Error"},
 		d = {
 			"<cmd>Telescope diagnostics bufnr=0<cr>",
 			"Document Diagnostics",
@@ -161,7 +162,7 @@ local mappings = {
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"} 
+		h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
 	},
 	s = {
 		name = "Search",
